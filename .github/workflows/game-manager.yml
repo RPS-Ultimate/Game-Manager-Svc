@@ -42,25 +42,16 @@ jobs:
       needs: [build, test]
       runs-on: ubuntu-20.04
       steps:
-        uses: actions/checkout@v2.3.1
-        with:
-          path: .\.sonar\scanner
-          key: ${{ runner.os }}-sonar-scanner
-          restore-keys: ${{ runner.os }}-sonar-scanner
-          if: steps.cache-sonar-scanner.outputs.cache-hit != 'true'
-          shell: powershell
-          run: |
-            New-Item -Path .\.sonar\scanner -ItemType Directory
-            dotnet tool update dotnet-sonarscanner --tool-path .\.sonar\scanner
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        shell: powershell
-        run: |
-          .\.sonar\scanner\dotnet-sonarscanner begin /k:"RPS-Ultimate_Game-Manager-Svc" /o:"rps-ultimate" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          dotnet build
-          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
-          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+        - uses: actions/checkout@v2.3.1
+        - run: git fetch --unshallow
+        - run: dotnet tool install --global dotnet-sonarscanner
+        - run: | 
+            dotnet sonarscanner begin -o:"rps-ultimate" -k:"RPS-Ultimate_Game-Manager-Svc" -d:sonar.login="${{ secrets.SONAR_TOKEN }}" -d:sonar.host.url='https://sonarcloud.io/'
+            dotnet build
+            dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
+            dotnet sonarscanner end -d:sonar.login="${{ secrets.SONAR_TOKEN }}"
+          env: 
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     # # Steps represent a sequence of tasks that will be executed as part of the job
     # steps:
