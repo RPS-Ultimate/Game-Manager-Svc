@@ -25,6 +25,15 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.1
       - run: dotnet build
+  
+  test:
+      defaults:
+        run:
+          working-directory: ./GameManager-Tests
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2.3.1
+        - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
 
     # # Steps represent a sequence of tasks that will be executed as part of the job
     # steps:
