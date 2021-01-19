@@ -30,6 +30,7 @@ namespace GameManager
 
             services.AddControllers();
             services.AddScoped<IBotService, BotService>();
+            services.AddScoped<IRandomService, RandomService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GameManager", Version = "v1" });

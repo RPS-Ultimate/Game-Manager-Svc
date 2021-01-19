@@ -4,13 +4,16 @@ using GameManager.Services;
 
 namespace GameManager.Tests.Unit
 {
-    public class BotServiceTests
+    public class BotServiceTests : IClassFixture<RandomFixture>
     {
         private readonly IBotService _botService;
+        RandomFixture _fixture;
 
-        public BotServiceTests()
+        public BotServiceTests(RandomFixture fixture)
         {
-            _botService = new BotService();
+            _fixture = fixture;
+            var random = _fixture.randomService;
+            _botService = new BotService(random);
         }
 
         [Fact]
@@ -34,7 +37,7 @@ namespace GameManager.Tests.Unit
             var result = _botService.GetMove();
             //Then
             Assert.IsType<int>(result);
-            Assert.True(result > 0);
+            Assert.True(result < 4);
         }
     }
 }

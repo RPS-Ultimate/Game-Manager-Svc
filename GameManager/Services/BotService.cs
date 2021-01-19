@@ -5,13 +5,13 @@ namespace GameManager.Services
 {
     public class BotService : IBotService
     {
-        private readonly Random random;
+        private readonly IRandomService _random;
         private readonly int rInt;
 
-        public BotService()
+        public BotService(IRandomService random)
         {
-            random = new Random();
-            rInt = random.Next(1, 3);
+            _random = random;
+            rInt = _random.GenerateNumber();
         }
 
         public int GetMove()
