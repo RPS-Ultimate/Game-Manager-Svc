@@ -53,7 +53,6 @@ jobs:
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"RPS-Ultimate_Game-Manager-Svc" /o:"rps-ultimate" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
           dotnet build
           dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
-          dotnet sonarscanner end -d:sonar.login='d1eeb6dbaaba45e39a73bfe797967c066d30fa8a'
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
     # # Steps represent a sequence of tasks that will be executed as part of the job
