@@ -34,6 +34,27 @@ jobs:
       steps:
         - uses: actions/checkout@v2.3.1
         - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
+  
+  analyze:
+      defaults:
+        run:
+          working-directory: ./GameManager-Tests
+      needs: [build, test]
+      runs-on: ubuntu-20.04
+      steps:
+        - uses: actions/checkout@v2.3.1
+        - run: git fetch --unshallow
+        - run: dotnet tool install --global dotnet-sonarscanner
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        shell: powershell
+        run: |
+          .\.sonar\scanner\dotnet-sonarscanner begin /k:"RPS-Ultimate_Game-Manager-Svc" /o:"rps-ultimate" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
+          dotnet build
+          dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
+          dotnet sonarscanner end -d:sonar.login='d1eeb6dbaaba45e39a73bfe797967c066d30fa8a'
+          .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
 
     # # Steps represent a sequence of tasks that will be executed as part of the job
     # steps:
