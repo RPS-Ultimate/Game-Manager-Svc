@@ -60,14 +60,14 @@ jobs:
       env:
         DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      needs: [analyze_api]
+      needs: [analyze]
       runs-on: ubuntu-20.04
       steps:
         - uses: actions/checkout@v2.3.1
         - run: docker login --username ${DOCKER_LOGIN} --password ${DOCKER_TOKEN}
         - run: docker image build -t game-manager-svc .
-        - run: docker image tag game-manager-svc hdhopson/game-manager-svc
-        - run: docker image push hdhopson/game-manager-svc
+        - run: docker image tag game-manager-svc rpsultimate/game-manager-svc
+        - run: docker image push rpsultimate/game-manager-svc
         - run: docker logout
 
     # # Steps represent a sequence of tasks that will be executed as part of the job
