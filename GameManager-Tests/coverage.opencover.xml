@@ -1,16 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CoverageSession>
-  <Summary numSequencePoints="57" visitedSequencePoints="21" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="36.84" branchCoverage="0" maxCyclomaticComplexity="14" minCyclomaticComplexity="14" visitedClasses="2" numClasses="4" visitedMethods="6" numMethods="13" />
+  <Summary numSequencePoints="35" visitedSequencePoints="0" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="7" minCyclomaticComplexity="7" visitedClasses="0" numClasses="2" visitedMethods="0" numMethods="6" />
   <Modules>
-    <Module hash="1BA5D089-3F2E-44F2-BF6D-57C5E6A228BF">
+    <Module hash="3D8F9869-E956-4AF4-8385-804FA547969E">
       <ModulePath>GameManager.dll</ModulePath>
-      <ModuleTime>2021-01-19T04:28:39</ModuleTime>
+      <ModuleTime>2021-01-19T06:11:54</ModuleTime>
       <ModuleName>GameManager</ModuleName>
       <Files>
         <File uid="1" fullPath="C:\Users\2005998\workspace\RPS-Ultimate\Game-Manager-Svc\GameManager\Program.cs" />
         <File uid="2" fullPath="C:\Users\2005998\workspace\RPS-Ultimate\Game-Manager-Svc\GameManager\Startup.cs" />
-        <File uid="3" fullPath="C:\Users\2005998\workspace\RPS-Ultimate\Game-Manager-Svc\GameManager\WeatherForecast.cs" />
-        <File uid="4" fullPath="C:\Users\2005998\workspace\RPS-Ultimate\Game-Manager-Svc\GameManager\Controllers\WeatherForecastController.cs" />
       </Files>
       <Classes>
         <Class>
@@ -120,110 +118,6 @@
               </SequencePoints>
               <BranchPoints />
               <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="19" ec="1" el="22" bec="0" bev="0" fileid="2" xmlns:p8="xsi" />
-            </Method>
-          </Methods>
-        </Class>
-        <Class>
-          <Summary numSequencePoints="4" visitedSequencePoints="3" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="75" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="3" numMethods="4" />
-          <FullName>GameManager.WeatherForecast</FullName>
-          <Methods>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.DateTime GameManager.WeatherForecast::get_Date()</Name>
-              <FileRef uid="3" />
-              <SequencePoints>
-                <SequencePoint vc="5" uspid="7" ordinal="0" sl="7" sc="1" el="7" ec="2" bec="0" bev="0" fileid="3" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="7" ec="1" el="7" bec="0" bev="0" fileid="3" xmlns:p8="xsi" />
-            </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.Int32 GameManager.WeatherForecast::get_TemperatureC()</Name>
-              <FileRef uid="3" />
-              <SequencePoints>
-                <SequencePoint vc="5" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="3" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="9" ec="1" el="9" bec="0" bev="0" fileid="3" xmlns:p8="xsi" />
-            </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
-              <MetadataToken />
-              <Name>System.Int32 GameManager.WeatherForecast::get_TemperatureF()</Name>
-              <FileRef uid="3" />
-              <SequencePoints>
-                <SequencePoint vc="0" uspid="11" ordinal="0" sl="11" sc="1" el="11" ec="2" bec="0" bev="0" fileid="3" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="11" ec="1" el="11" bec="0" bev="0" fileid="3" xmlns:p8="xsi" />
-            </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.String GameManager.WeatherForecast::get_Summary()</Name>
-              <FileRef uid="3" />
-              <SequencePoints>
-                <SequencePoint vc="5" uspid="13" ordinal="0" sl="13" sc="1" el="13" ec="2" bec="0" bev="0" fileid="3" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="13" ec="1" el="13" bec="0" bev="0" fileid="3" xmlns:p8="xsi" />
-            </Method>
-          </Methods>
-        </Class>
-        <Class>
-          <Summary numSequencePoints="18" visitedSequencePoints="18" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="3" numMethods="3" />
-          <FullName>GameManager.Controllers.WeatherForecastController</FullName>
-          <Methods>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="10" visitedSequencePoints="10" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.Collections.Generic.IEnumerable`1&lt;GameManager.WeatherForecast&gt; GameManager.Controllers.WeatherForecastController::Get()</Name>
-              <FileRef uid="4" />
-              <SequencePoints>
-                <SequencePoint vc="1" uspid="28" ordinal="0" sl="28" sc="1" el="28" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="29" ordinal="1" sl="29" sc="1" el="29" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="30" ordinal="2" sl="30" sc="1" el="30" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="31" ordinal="3" sl="31" sc="1" el="31" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="32" ordinal="4" sl="32" sc="1" el="32" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="33" ordinal="5" sl="33" sc="1" el="33" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="34" ordinal="6" sl="34" sc="1" el="34" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="5" uspid="35" ordinal="7" sl="35" sc="1" el="35" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="36" ordinal="8" sl="36" sc="1" el="36" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="37" ordinal="9" sl="37" sc="1" el="37" ec="2" bec="0" bev="0" fileid="4" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="10" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="28" ec="1" el="37" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
-            </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.Void GameManager.Controllers.WeatherForecastController::.ctor(Microsoft.Extensions.Logging.ILogger`1&lt;GameManager.Controllers.WeatherForecastController&gt;)</Name>
-              <FileRef uid="4" />
-              <SequencePoints>
-                <SequencePoint vc="2" uspid="21" ordinal="0" sl="21" sc="1" el="21" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="2" uspid="22" ordinal="1" sl="22" sc="1" el="22" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="2" uspid="23" ordinal="2" sl="23" sc="1" el="23" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="2" uspid="24" ordinal="3" sl="24" sc="1" el="24" ec="2" bec="0" bev="0" fileid="4" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="4" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="21" ec="1" el="24" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
-            </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
-              <MetadataToken />
-              <Name>System.Void GameManager.Controllers.WeatherForecastController::.cctor()</Name>
-              <FileRef uid="4" />
-              <SequencePoints>
-                <SequencePoint vc="1" uspid="14" ordinal="0" sl="14" sc="1" el="14" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="15" ordinal="1" sl="15" sc="1" el="15" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="16" ordinal="2" sl="16" sc="1" el="16" ec="2" bec="0" bev="0" fileid="4" />
-                <SequencePoint vc="1" uspid="17" ordinal="3" sl="17" sc="1" el="17" ec="2" bec="0" bev="0" fileid="4" />
-              </SequencePoints>
-              <BranchPoints />
-              <MethodPoint vc="4" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="14" ec="1" el="17" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
