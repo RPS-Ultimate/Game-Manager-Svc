@@ -12,7 +12,7 @@ namespace GameManager.Services
         }
         public int GenerateNumber()
         {
-            return random.Next(1, 3);
+            return random.Next(1, 4);
         }
     }
 }
