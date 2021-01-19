@@ -14,14 +14,27 @@ namespace GameManager.Tests.Unit
         }
 
         [Fact]
-        public void GetThrowsExceptionWhenGivenNullId()
+        public void GetReturnsAnIntLessThanFour()
         {
             //Given
             
             //When
-            var result = _botService.Get();
+            var result = _botService.GetMove();
             //Then
-            Assert.IsType<string>(result);
+            Assert.IsType<int>(result);
+            Assert.True(result < 4);
+        }
+
+        [Fact]
+        public void GetReturnsAnIntGreaterThanZero()
+        {
+            //Given
+            
+            //When
+            var result = _botService.GetMove();
+            //Then
+            Assert.IsType<int>(result);
+            Assert.True(result > 0);
         }
     }
 }

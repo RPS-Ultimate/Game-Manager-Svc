@@ -5,14 +5,18 @@ namespace GameManager.Services
 {
     public class BotService : IBotService
     {
+        private readonly Random random;
+        private readonly int rInt;
+
         public BotService()
         {
-
+            random = new Random();
+            rInt = random.Next(1, 3);
         }
 
-        public string Get()
+        public int GetMove()
         {
-            return "Name";
+            return rInt;
         }
     }
 }

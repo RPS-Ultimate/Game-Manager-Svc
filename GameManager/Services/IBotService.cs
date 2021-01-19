@@ -5,6 +5,6 @@ namespace GameManager.Services
 {
     public interface IBotService
     {
-        string Get();
+        int GetMove();
     }
 }
