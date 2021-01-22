@@ -32,6 +32,12 @@ namespace GameManager
             services.AddScoped<IBotService, BotService>();
             services.AddScoped<IRandomService, RandomService>();
             services.AddScoped<IOutcomeService, OutcomeService>();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowOrigin",
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GameManager", Version = "v1" });
@@ -47,6 +53,7 @@ namespace GameManager
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GameManager v1"));
             }
+            app.UseCors("AllowOrigin");
 
             app.UseHttpsRedirection();
 
