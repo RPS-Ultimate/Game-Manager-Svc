@@ -27,9 +27,9 @@ namespace GameManager.Services
 
         public bool DetermineUserWins(int userMove, int botMove)
         {
-            if ((userMove == 1 && botMove == 2) || 
-                (userMove == 2 && botMove == 3) || 
-                (userMove == 3 && botMove == 1) || 
+            if ((userMove == 0 && botMove == 1) || 
+                (userMove == 1 && botMove == 2) || 
+                (userMove == 2 && botMove == 0) || 
                 (userMove == botMove))
             {
                 return false;
