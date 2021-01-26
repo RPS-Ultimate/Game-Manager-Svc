@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\2005998\\workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj": {}
+    "C:\\Users\\Admin\\Workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\2005998\\workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj": {
+    "C:\\Users\\Admin\\Workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\2005998\\workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj",
+        "projectUniqueName": "C:\\Users\\Admin\\Workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj",
         "projectName": "GameManager",
-        "projectPath": "C:\\Users\\2005998\\workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj",
-        "packagesPath": "C:\\Users\\2005998\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\2005998\\workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\obj\\",
+        "projectPath": "C:\\Users\\Admin\\Workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\GameManager.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Admin\\Workspace\\RPS-Ultimate\\Game-Manager-Svc\\GameManager\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\2005998\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

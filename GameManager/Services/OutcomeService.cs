@@ -1,3 +1,4 @@
+using System;
 using GameManager.Models;
 
 namespace GameManager.Services
@@ -12,9 +13,13 @@ namespace GameManager.Services
 
         public Outcome GetOutcome(int userMove)
         {
+            if (userMove < 0 || userMove > 2)
+            {
+                throw new ArgumentOutOfRangeException();
+            }
             var botMove = randomService.GenerateNumber();
             var userWins = DetermineUserWins(userMove, botMove);
-            var isADraw = userMove == botMove ? true : false;
+            var isADraw = userMove == botMove;
             var outcome = new Outcome() {
                 UserMove = userMove,
                 BotMove = botMove,

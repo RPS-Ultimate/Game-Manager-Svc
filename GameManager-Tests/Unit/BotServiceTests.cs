@@ -25,11 +25,11 @@ namespace GameManager.Tests.Unit
             var result = _botService.GetMove();
             //Then
             Assert.IsType<int>(result);
-            Assert.True(result < 4);
+            Assert.True(result < 3);
         }
 
         [Fact]
-        public void GetReturnsAnIntGreaterThanZero()
+        public void GetReturnsAnIntGreaterThanOrEqualToZero()
         {
             //Given
             
@@ -37,7 +37,7 @@ namespace GameManager.Tests.Unit
             var result = _botService.GetMove();
             //Then
             Assert.IsType<int>(result);
-            Assert.True(result < 4);
+            Assert.True(result > -1);
         }
     }
 }
