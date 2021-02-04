@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: gamemanagersvc 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gamemanagersvc
+  template:
+    metadata:
+      labels:
+        app: gamemanagersvc 
+    spec:
+      containers:
+        - name: gamemanagersvc 
+          image: rpsbattle.azurecr.io/gamemanagersvc
+          ports:
+          - containerPort: 80
