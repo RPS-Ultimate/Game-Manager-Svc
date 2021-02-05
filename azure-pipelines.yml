@@ -13,7 +13,7 @@ variables:
   containerRegistry: 'rpsbattle.azurecr.io'
   dockerfilePath: '**/Dockerfile'
   tag: '$(Build.BuildNumber)'
-  # imagePullSecret: 'rpsbattleea2d-auth'
+  imagePullSecret: 'rpsbattleea2d-auth'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -69,8 +69,8 @@ stages:
               manifests: |
                 $(Pipeline.Workspace)/manifests/deployment.yml
                 $(Pipeline.Workspace)/manifests/service.yml
-              # imagePullSecrets: |
-              #   $(imagePullSecret)
+              imagePullSecrets: |
+                $(imagePullSecret)
               containers: |
                 $(containerRegistry)/$(imageRepository):$(tag)
 
