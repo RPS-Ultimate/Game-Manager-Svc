@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: rpsultimategamemanagersvc 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rpsultimategamemanagersvc
+  template:
+    metadata:
+      labels:
+        app: rpsultimategamemanagersvc 
+    spec:
+      containers:
+        - name: rpsultimategamemanagersvc 
+          image: rpsbattle.azurecr.io/rpsultimategamemanagersvc
+          ports:
+          - containerPort: 80
