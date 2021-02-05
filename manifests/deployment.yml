@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: "rpsbattle-6350"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: "rpsbattle-6350"
+  template:
+    metadata:
+      labels:
+        app: "rpsbattle-6350"
+    spec:
+      containers:
+        - name: "rpsbattle-6350"
+          image: "rpsbattle.azurecr.io/rpsbattle"
+          ports:
+          - containerPort: 80
