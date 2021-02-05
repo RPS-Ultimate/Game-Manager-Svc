@@ -1,4 +1,3 @@
-using System;
 using GameManager.Services;
 
 namespace GameManager.Tests.Unit
