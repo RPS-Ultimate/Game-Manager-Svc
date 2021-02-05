@@ -48,3 +48,4 @@ jobs:
           rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
         imagepullsecrets: |
           rpsbattledockerauth
+        imagePullPolicy: Always
