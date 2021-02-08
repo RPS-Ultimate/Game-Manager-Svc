@@ -13,57 +13,51 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    defaults:
-      run:
-        working-directory: ./
-    # The type of runner that the job will run on
-    runs-on: ubuntu-20.04
+  build-and-deploy:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2.3.1
-      - run: dotnet build
-  
-  test:
-      defaults:
-        run:
-          working-directory: ./GameManager-Tests
-      runs-on: ubuntu-20.04
-      steps:
-        - uses: actions/checkout@v2.3.1
-        - run: dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover
-  
-  analyze:
-      defaults:
-        run:
-          working-directory: ./GameManager-Tests
-      needs: [build, test]
-      runs-on: ubuntu-20.04
-      steps:
-        - uses: actions/checkout@v2.3.1
-        - run: git fetch --unshallow
-        - run: dotnet tool install --global dotnet-sonarscanner
-        - run: | 
-            dotnet sonarscanner begin -o:"rps-ultimate" -k:"RPS-Ultimate_Game-Manager-Svc" -d:sonar.login="${{ secrets.SONAR_TOKEN }}" -d:sonar.host.url='https://sonarcloud.io/'
-            dotnet build
-            dotnet test -p:CollectCoverage=true -p:CoverletOutputFormat=opencover --logger trx
-            dotnet sonarscanner end -d:sonar.login="${{ secrets.SONAR_TOKEN }}"
-          env: 
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - uses: actions/checkout@master
     
-  package:
-      defaults:
-        run:
-          working-directory: ./
-      env:
-        DOCKER_LOGIN: ${{ secrets.DOCKER_LOGIN }}
-        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-      needs: [analyze]
-      runs-on: ubuntu-20.04
-      steps:
-        - uses: actions/checkout@v2.3.1
-        - run: docker login --username ${DOCKER_LOGIN} --password ${DOCKER_TOKEN}
-        - run: docker image build -t game-manager-svc .
-        - run: docker image tag game-manager-svc rpsultimate/game-manager-svc
-        - run: docker image push rpsultimate/game-manager-svc
-        - run: docker logout
+    - uses: azure/docker-login@v1
+      with:
+        login-server: rpsbattle.azurecr.io
+        username: ${{ secrets.acr_rpsbattle_username }}
+        password: ${{ secrets.acr_rpsbattle_password }}
+    
+    - name: Build and push image to ACR
+      id: build-image
+      run: |
+        docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
+        docker push rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
+    
+    - uses: azure/k8s-set-context@v1
+      with:
+         kubeconfig: ${{ secrets.aks_rpsbattle_kubeConfig }}
+      id: login
+    
+    - name: Create namespace
+      run: |
+        namespacePresent=`kubectl get namespace | grep default | wc -l`
+        if [ $namespacePresent -eq 0 ]
+        then
+            echo `kubectl create namespace default`
+        fi
+
+    - uses: azure/k8s-create-secret@v1
+      with:
+        namespace: default
+        container-registry-url: rpsbattle.azurecr.io
+        container-registry-username: ${{ secrets.acr_rpsbattle_username }}
+        container-registry-password: ${{ secrets.acr_rpsbattle_password }}
+        secret-name: rpsbattledockerauth
+       
+    - uses: azure/k8s-deploy@v1.2
+      with:
+        namespace: default
+        manifests: |
+          manifests/deployment.yml
+          manifests/service.yml
+        images: |
+          rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
+        imagepullsecrets: |
+          rpsbattledockerauth
