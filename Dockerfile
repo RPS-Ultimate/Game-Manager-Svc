@@ -11,4 +11,4 @@ FROM mcr.microsoft.com/dotnet/aspnet:5.0 AS runtime
 WORKDIR /app
 EXPOSE 80
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "Game-Manager-Svc.dll"]
+ENTRYPOINT ["dotnet", "GameManager.dll"]
