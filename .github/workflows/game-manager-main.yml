@@ -58,6 +58,6 @@ jobs:
           manifests/deployment.yml
           manifests/service.yml
         images: |
-          rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
+          rpsbattle.azurecr.io/gamemanager:${{ github.sha }}
         imagepullsecrets: |
           rpsbattledockerauth
