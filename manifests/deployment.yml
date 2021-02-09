@@ -1,19 +1,19 @@
 apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: "rpsbattle-6350"
+  name: "rpsbattle-game-manager"
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: "rpsbattle-6350"
+      app: "rpsbattle-game-manager"
   template:
     metadata:
       labels:
-        app: "rpsbattle-6350"
+        app: "rpsbattle-game-manager"
     spec:
       containers:
-        - name: "rpsbattle-6350"
-          image: "rpsbattle.azurecr.io/rpsbattle"
+        - name: "rpsbattle-game-manager"
+          image: "rpsbattle.azurecr.io/gamemanager"
           ports:
           - containerPort: 80

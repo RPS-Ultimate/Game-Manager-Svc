@@ -27,8 +27,8 @@ jobs:
     - name: Build and push image to ACR
       id: build-image
       run: |
-        docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
-        docker push rpsbattle.azurecr.io/rpsbattle:${{ github.sha }}
+        docker build "$GITHUB_WORKSPACE/" -f  "Dockerfile" -t rpsbattle.azurecr.io/gamemanager:${{ github.sha }}
+        docker push rpsbattle.azurecr.io/gamemanager:${{ github.sha }}
     
     - uses: azure/k8s-set-context@v1
       with:
